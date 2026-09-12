@@ -40,7 +40,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--format",
         choices=["lafan1", "nokov","guangxue","noitom","new","sfu"],
-        default="guangxue",
+        default="lafan1",
     )
     
     parser.add_argument(

@@ -6,22 +6,22 @@
     "use_ik_match_table1": true,
     "use_ik_match_table2": true,
     "human_scale_table": {
-        "pelvis": 0.9,
-        "spine3": 0.9,
+        "pelvis": 1.05,
+        "spine3": 1.05,
 
-        "left_hip": 0.9,
-        "right_hip": 0.9,
-        "left_knee": 0.9,
-        "right_knee": 0.9,
-        "left_foot": 0.85,
-        "right_foot": 0.85,
+        "left_hip": 1.0,
+        "right_hip": 1.0,
+        "left_knee": 1.0,
+        "right_knee": 1.0,
+        "left_foot": 1.0,
+        "right_foot": 1.0,
 
-        "left_shoulder": 0.9,
-        "right_shoulder": 0.9,
-        "left_elbow": 0.8,
-        "right_elbow": 0.8,
-        "left_wrist": 0.8,
-        "right_wrist": 0.8
+        "left_shoulder": 1.0,
+        "right_shoulder": 1.0,
+        "left_elbow": 1.0,
+        "right_elbow": 1.0,
+        "left_wrist": 1.0,
+        "right_wrist": 1.0
     },
 
     "ik_match_table1": {
@@ -139,7 +139,7 @@
         ],
         "torso_link": [
             "spine3",
-            0,
+            50,
             10,
             [
                 0.0,
@@ -147,10 +147,7 @@
                 0.0
             ],
             [
-                0.5,
-                -0.5,
-                -0.5,
-                -0.5
+                0.43045933, -0.56098553, -0.56098553, -0.43045933
             ]
         ],
         "left_shoulder_yaw_link": [
@@ -286,7 +283,7 @@
         ],
         "left_knee_link": [
             "left_knee",
-            10,
+            80,
             5,
             [
                 0.0,
@@ -329,7 +326,7 @@
         ],
         "right_knee_link": [
             "right_knee",
-            10,
+            80,
             5,
             [
                 0.0,
@@ -356,7 +353,7 @@
         ],
         "torso_link": [
             "spine3",
-            0,
+            50,
             10,
             [
                 0.0,
@@ -364,10 +361,7 @@
                 0.0
             ],
             [
-                0.5,
-                -0.5,
-                -0.5,
-                -0.5
+                0.43045933, -0.56098553, -0.56098553, -0.43045933
             ]
         ],
         "left_shoulder_yaw_link": [
@@ -404,7 +398,7 @@
         ],
         "left_wrist_yaw_link": [
             "left_wrist",
-            10,
+            30,
             5,
             [
                 0.0,
@@ -452,7 +446,7 @@
         ],
         "right_wrist_yaw_link": [
             "right_wrist",
-            10,
+            30,
             5,
             [
                 0.0,
