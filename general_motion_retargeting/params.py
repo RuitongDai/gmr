@@ -30,6 +30,7 @@ ROBOT_XML_DICT = {
     "x3_f2": ASSET_ROOT / "f2" / "scene_f1_1.xml",
     "x3_f2_waiguan": ASSET_ROOT / "F2_ZZ1_waiguan" / "x3_f2_14dof.xml",
     "f3": ASSET_ROOT / "f3" / "scene_f3.xml",
+    "f4": ASSET_ROOT / "f4" / "f4.xml",
 }
 
 IK_CONFIG_DICT = {
@@ -74,6 +75,7 @@ IK_CONFIG_DICT = {
         "x3_f2":IK_CONFIG_ROOT / "bvh_guangxue_to_x3_f2.json",
         "f3":IK_CONFIG_ROOT / "bvh_guangxue_to_f3.json",
         "x3_f2_waiguan": IK_CONFIG_ROOT / "bvh_guangxue_to_x3_f2_waiguan.json",
+        "f4": IK_CONFIG_ROOT / "bvh_guangxue_to_f4.json",
     },
 
     "bvh_noitom": {
@@ -140,6 +142,7 @@ ROBOT_BASE_DICT = {
     "e1_25dof": "pelvis",
     "f3": "pelvis",
     "x3_f2_waiguan":"pelvis",
+    "f4": "pelvis",
 }
 
 VIEWER_CAM_DISTANCE_DICT = {
@@ -168,4 +171,5 @@ VIEWER_CAM_DISTANCE_DICT = {
     "e1_25dof": 2.0,
     "f3": 2.0,
     "x3_f2_waiguan": 2.0,
+    "f4": 2.0,
 }

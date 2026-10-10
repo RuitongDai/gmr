@@ -40,7 +40,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--format",
         choices=["lafan1", "nokov","guangxue","noitom","new","sfu"],
-        default="lafan1",
+        default="guangxue",
     )
     
     parser.add_argument(
@@ -54,8 +54,8 @@ if __name__ == "__main__":
         "--robot",
         choices=["unitree_g1", "unitree_g1_with_hands", "booster_t1", "stanford_toddy", "fourier_n1",
                  "engineai_pm01", "pal_talos","x3","e1_no_hand","x3_f1", "x3_f2","e1_25dof","f3",
-                 "x3_f2_waiguan"],
-        default="x3_f2",
+                 "x3_f2_waiguan", "f4"],
+        default="f4",
     )
     
     

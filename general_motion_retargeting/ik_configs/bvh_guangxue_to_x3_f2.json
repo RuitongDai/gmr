@@ -4,13 +4,13 @@
     "ground_height": 0.0,
     "human_height_assumption": 1.8,
     "use_ik_match_table1": true,
-    "use_ik_match_table2": true,
+    "use_ik_match_table2": false,
     "human_scale_table": {
-        "Hips": 1.02,
-        "Spine1": 1.02,
+        "Hips": 0.97,
+        "Spine1": 0.97,
 
-        "LeftUpLeg": 1.0,
-        "RightUpLeg": 1.0,
+        "LeftUpLeg": 0.95,
+        "RightUpLeg": 0.95,
         "LeftLeg": 1.0,
         "RightLeg": 1.0,
         "LeftFootMod": 1.0,
@@ -77,7 +77,7 @@
             100,
             10,
             [
-                0.0,
+                0.02,
                 0.0,
                 0.0
             ],
@@ -125,7 +125,7 @@
             100,
             10,
             [
-                0.0,
+                0.02,
                 0.0,
                 0.0
             ],

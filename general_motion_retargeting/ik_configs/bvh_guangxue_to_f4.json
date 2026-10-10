@@ -1,0 +1,140 @@
+{
+    "robot_root_name": "pelvis",
+    "human_root_name": "Hips",
+    "ground_height": 0.0,
+    "human_height_assumption": 1.70,
+    "use_ik_match_table1": true,
+    "use_ik_match_table2": false,
+    "human_scale_table": {
+        "Hips": 0.87,
+        "Spine2": 0.87,
+
+        "LeftUpLeg": 0.87,
+        "RightUpLeg": 0.87,
+        "LeftLeg": 0.85,
+        "RightLeg": 0.85,
+        "LeftFootMod": 0.90,
+        "RightFootMod": 0.90
+    },
+    "ik_match_table1": {
+        "pelvis": [
+            "Hips",
+            10,
+            10,
+            [
+                0.0,
+                0.0,
+                0.0
+            ],
+            [
+                0.4837,
+                -0.5044,
+                -0.5134,
+                -0.498
+            ]
+        ],
+        "left_hip_yaw_link": [
+            "LeftUpLeg",
+            10,
+            50,
+            [
+                0.0,
+                0.0,
+                0.0
+            ],
+            [
+                0.4924,
+                -0.4778,
+                -0.5045,
+                -0.5241
+            ]
+        ],
+        "left_knee_link": [
+            "LeftLeg",
+            10,
+            10,
+            [
+                0.0,
+                -0.02,
+                0.0
+            ],
+            [
+                -0.4389,
+                0.4613,
+                0.5589,
+                0.5312
+            ]
+        ],
+        "left_ankle_roll_link": [
+            "LeftFootMod",
+            100,
+            10,
+            [
+                0.0,
+                0.0,
+                0.0
+            ],
+            [
+                -0.48328955, 0.48088960, 0.51798879, 0.51658883
+            ]
+        ],
+        "right_hip_yaw_link": [
+            "RightUpLeg",
+            10,
+            50,
+            [
+                0.0,
+                0.0,
+                0.0
+            ],
+            [
+                -0.5252,
+                0.4728,
+                0.5045,
+                0.4961
+            ]
+        ],
+        "right_knee_link": [
+            "RightLeg",
+            10,
+            10,
+            [
+                0.0,
+                0.0,
+                0.0
+            ],
+            [
+                -0.5231,
+                0.5275,
+                0.501,
+                0.4439
+            ]
+        ],
+        "right_ankle_roll_link": [
+            "RightFootMod",
+            100,
+            10,
+            [
+                0.0,
+                0.0,
+                0.0
+            ],
+            [
+                -0.50479165, 0.49809177, 0.49749177, 0.49959174
+            ]
+        ],
+        "torso_link": [
+            "Spine2",
+            10,
+            30,
+            [
+                0.0,
+                0.0,
+                0.0
+            ],
+            [
+                -0.52691813, 0.49625176, 0.47036350, 0.50482636
+            ]
+        ]
+    }
+}
