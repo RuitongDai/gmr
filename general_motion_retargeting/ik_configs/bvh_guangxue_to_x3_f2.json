@@ -4,10 +4,10 @@
     "ground_height": 0.0,
     "human_height_assumption": 1.8,
     "use_ik_match_table1": true,
-    "use_ik_match_table2": false,
+    "use_ik_match_table2": true,
     "human_scale_table": {
         "Hips": 0.97,
-        "Spine1": 0.97,
+        "Spine2": 0.97,
 
         "LeftUpLeg": 0.95,
         "RightUpLeg": 0.95,
@@ -137,7 +137,7 @@
             ]
         ],
         "torso_link": [
-            "Spine1",
+            "Spine2",
             10,
             10,
             [
@@ -146,10 +146,7 @@
                 0.0
             ],
             [
-                -0.5059,
-                0.5178,
-                0.4929,
-                0.4827
+                -0.43723530, 0.57637475, 0.55471600, 0.41098369
             ]
         ],
         "left_shoulder_pitch_link": [
@@ -252,8 +249,8 @@
     "ik_match_table2": {
         "pelvis": [
             "Hips",
-            100,
-            100,
+            50,
+            10,
             [
                 0.0,
                 0.0,
@@ -284,7 +281,7 @@
         ],
         "left_knee_link": [
             "LeftLeg",
-            100,
+            50,
             10,
             [
                 0.0,
@@ -303,7 +300,7 @@
             100,
             10,
             [
-                0.0,
+                0.02,
                 0.0,
                 0.0
             ],
@@ -332,7 +329,7 @@
         ],
         "right_knee_link": [
             "RightLeg",
-            100,
+            50,
             10,
             [
                 0.0,
@@ -351,7 +348,7 @@
             100,
             10,
             [
-                0.0,
+                0.02,
                 0.0,
                 0.0
             ],
@@ -363,19 +360,16 @@
             ]
         ],
         "torso_link": [
-            "Spine1",
+            "Spine2",
             10,
-            50,
+            10,
             [
                 0.0,
                 0.0,
                 0.0
             ],
             [
-                -0.5059,
-                0.5178,
-                0.4929,
-                0.4827
+                -0.43723530, 0.57637475, 0.55471600, 0.41098369
             ]
         ],
         "left_shoulder_pitch_link": [

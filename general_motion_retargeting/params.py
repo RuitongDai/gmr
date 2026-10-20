@@ -55,6 +55,7 @@ IK_CONFIG_DICT = {
         "fourier_gr3": IK_CONFIG_ROOT / "smplx_to_gr3.json",
         "x3": IK_CONFIG_ROOT / "smplx_to_x3.json",
         "x3_f2": IK_CONFIG_ROOT / "smplx_to_x3_f2.json",
+        "f4": IK_CONFIG_ROOT / "smplx_to_f4.json",
     },
     "bvh_lafan1":{
         "unitree_g1": IK_CONFIG_ROOT / "bvh_lafan1_to_g1.json",
