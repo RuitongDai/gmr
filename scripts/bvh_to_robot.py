@@ -8,6 +8,7 @@ from general_motion_retargeting.utils.guangxue import load_guangxue_bvh_file
 from general_motion_retargeting.utils.noitom import load_noitom_bvh_file
 from general_motion_retargeting.utils.new import load_new_bvh_file
 from general_motion_retargeting.utils.sfu import load_sfu_bvh_file
+from general_motion_retargeting.utils.hold import load_hold_bvh_file
 from rich import print
 from tqdm import tqdm
 import os
@@ -39,8 +40,8 @@ if __name__ == "__main__":
     
     parser.add_argument(
         "--format",
-        choices=["lafan1", "nokov","guangxue","noitom","new","sfu"],
-        default="guangxue",
+        choices=["lafan1", "nokov","guangxue","noitom","new","sfu","hold"],
+        default="hold",
     )
     
     parser.add_argument(
@@ -54,8 +55,8 @@ if __name__ == "__main__":
         "--robot",
         choices=["unitree_g1", "unitree_g1_with_hands", "booster_t1", "stanford_toddy", "fourier_n1",
                  "engineai_pm01", "pal_talos","x3","e1_no_hand","x3_f1", "x3_f2","e1_25dof","f3",
-                 "x3_f2_waiguan", "f4"],
-        default="f4",
+                 "x3_f2_waiguan", "f4","e1"],
+        default="e1",
     )
     
     
@@ -106,6 +107,10 @@ if __name__ == "__main__":
         lafan1_data_frames, actual_human_height = load_new_bvh_file(args.bvh_file)
     elif args.format == "sfu":
         lafan1_data_frames, actual_human_height = load_sfu_bvh_file(args.bvh_file)
+    elif args.format == "hold":
+        lafan1_data_frames, actual_human_height = load_hold_bvh_file(
+            args.bvh_file
+        )
     else:
         lafan1_data_frames, actual_human_height = load_bvh_file(args.bvh_file, format=args.format)
 

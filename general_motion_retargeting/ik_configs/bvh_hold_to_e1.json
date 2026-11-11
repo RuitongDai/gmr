@@ -1,0 +1,268 @@
+{
+    "robot_root_name": "pelvis",
+    "human_root_name": "Hips",
+    "ground_height": 0.0,
+    "human_height_assumption": 1.75,
+    "use_ik_match_table1": true,
+    "use_ik_match_table2": false,
+    "human_scale_table": {
+        "Hips": 0.7,
+        "LeftUpLeg": 0.7,
+        "LeftLeg": 0.7,
+        "LeftFootMod": 0.7,
+        "RightUpLeg": 0.7,
+        "RightLeg": 0.7,
+        "RightFootMod": 0.7,
+        "Spine2": 0.7,
+        "LeftArm": 0.7,
+        "LeftForeArm": 0.7,
+        "LeftHand": 0.7,
+        "RightArm": 0.7,
+        "RightForeArm": 0.7,
+        "RightHand": 0.7
+    },
+    "ik_match_table1": {
+        "pelvis": [
+            "Hips",
+            30,
+            10,
+            [
+                0.0,
+                0.0,
+                0.0
+            ],
+            [
+                0.707959429,
+                -0.043329381,
+                0.051706855,
+                0.703023764
+            ]
+        ],
+        "left_hip_yaw_link": [
+            "LeftUpLeg",
+            0,
+            10,
+            [
+                0.0,
+                0.0,
+                0.0
+            ],
+            [
+                0.765119712,
+                0.00848999,
+                -0.048113685,
+                0.64203179
+            ]
+        ],
+        "left_knee_link": [
+            "LeftLeg",
+            10,
+            10,
+            [
+                0.0,
+                0.0,
+                0.0
+            ],
+            [
+                0.763914506,
+                0.043759357,
+                -0.077665531,
+                0.639130512
+            ]
+        ],
+        "left_ankle_roll_link": [
+            "LeftFootMod",
+            100,
+            30,
+            [
+                0.0,
+                0.02,
+                0.0
+            ],
+            [
+                0.718458566,
+                -0.010060936,
+                -0.016116774,
+                0.69531023
+            ]
+        ],
+        "right_hip_yaw_link": [
+            "RightUpLeg",
+            0,
+            10,
+            [
+                0.0,
+                0.0,
+                0.0
+            ],
+            [
+                0.649630424,
+                0.028316491,
+                -0.003258035,
+                0.759715653
+            ]
+        ],
+        "right_knee_link": [
+            "RightLeg",
+            10,
+            10,
+            [
+                0.0,
+                0.0,
+                0.0
+            ],
+            [
+                0.64453998,
+                0.085963514,
+                -0.070792067,
+                0.756417194
+            ]
+        ],
+        "right_ankle_roll_link": [
+            "RightFootMod",
+            100,
+            30,
+            [
+                0.0,
+                -0.02,
+                0.0
+            ],
+            [
+                0.591910879,
+                -0.00998111,
+                -0.015369385,
+                0.805795055
+            ]
+        ],
+        "torso_link": [
+            "Spine2",
+            0,
+            10,
+            [
+                0.0,
+                0.0,
+                0.0
+            ],
+            [
+                0.692795087,
+                0.020293484,
+                0.002257833,
+                0.720845367
+            ]
+        ],
+        "left_shoulder_yaw_link": [
+            "LeftArm",
+            0,
+            10,
+            [
+                0.0,
+                0.0,
+                0.0
+            ],
+            [
+                0.558960298,
+                0.534632472,
+                0.475920062,
+                0.418606737
+            ]
+        ],
+        "left_elbow_link": [
+            "LeftForeArm",
+            10,
+            10,
+            [
+                0.0,
+                0.0,
+                0.0
+            ],
+            [
+                0.068404989,
+                -0.110373436,
+                0.607230246,
+                0.783843026
+            ]
+        ],
+        "left_wrist_pitch_link": [
+            "LeftHand",
+            40,
+            5,
+            [
+                0.0,
+                0.0,
+                0.0
+            ],
+            [
+                0.059199069,
+                -0.24203981,
+                0.662296857,
+                0.706593995
+            ]
+        ],
+        "right_shoulder_yaw_link": [
+            "RightArm",
+            0,
+            10,
+            [
+                0.0,
+                0.0,
+                0.0
+            ],
+            [
+                0.408012326,
+                -0.439561881,
+                -0.473928217,
+                0.644750603
+            ]
+        ],
+        "right_elbow_link": [
+            "RightForeArm",
+            10,
+            10,
+            [
+                0.0,
+                0.0,
+                0.0
+            ],
+            [
+                0.753722006,
+                -0.617521673,
+                0.174307506,
+                0.142081013
+            ]
+        ],
+        "right_wrist_pitch_link": [
+            "RightHand",
+            60,
+            3,
+            [
+                0.0,
+                -0.04,
+                0.02
+            ],
+            [
+                0.672928481,
+                -0.704560134,
+                0.20437505,
+                0.094832043
+            ]
+        ]
+    },
+    "ik_match_table2": {},
+    "_calibration": {
+        "source_motion": "I5.bvh",
+        "source_frame": 0,
+        "source_yaw_degrees": 0.0,
+        "robot_model": "assets/e1/e1.xml",
+        "robot_reference_joint_positions_rad": {
+            "left_shoulder_pitch_joint": -0.1733,
+            "left_shoulder_roll_joint": 1.3688,
+            "left_shoulder_yaw_joint": 0.0,
+            "left_elbow_joint": 1.5707963267948966,
+            "right_shoulder_pitch_joint": -0.1733,
+            "right_shoulder_roll_joint": -1.3688,
+            "right_shoulder_yaw_joint": 0.0,
+            "right_elbow_joint": 1.5707963267948966
+        },
+        "note": "Initial calibration from the first near-T-pose frame to an approximate robot T-pose. Scale, weights and offsets require visual tuning for final motion quality."
+    }
+}

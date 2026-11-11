@@ -25,7 +25,7 @@ ROBOT_XML_DICT = {
     "fourier_gr3": ASSET_ROOT / "fourier_gr3v2_1_1" / "mjcf" / "gr3v2_1_1_dummy_hand.xml",
     "x3": ASSET_ROOT / "x3" / "Moya01_V2.xml",
     "e1_no_hand": ASSET_ROOT / "E1_V2" / "E1_no_hand.xml",
-    "e1_25dof":ASSET_ROOT / "e1" / "E1_25dof.xml",
+    "e1":ASSET_ROOT / "e1" / "e1.xml",
     "x3_f1": ASSET_ROOT / "x3_f1" / "x3_f1_14dof.xml",
     "x3_f2": ASSET_ROOT / "f2" / "scene_f1_1.xml",
     "x3_f2_waiguan": ASSET_ROOT / "F2_ZZ1_waiguan" / "x3_f2_14dof.xml",
@@ -56,6 +56,7 @@ IK_CONFIG_DICT = {
         "x3": IK_CONFIG_ROOT / "smplx_to_x3.json",
         "x3_f2": IK_CONFIG_ROOT / "smplx_to_x3_f2.json",
         "f4": IK_CONFIG_ROOT / "smplx_to_f4.json",
+        "e1": IK_CONFIG_ROOT / "smplx_to_e1.json",
     },
     "bvh_lafan1":{
         "unitree_g1": IK_CONFIG_ROOT / "bvh_lafan1_to_g1.json",
@@ -77,6 +78,11 @@ IK_CONFIG_DICT = {
         "f3":IK_CONFIG_ROOT / "bvh_guangxue_to_f3.json",
         "x3_f2_waiguan": IK_CONFIG_ROOT / "bvh_guangxue_to_x3_f2_waiguan.json",
         "f4": IK_CONFIG_ROOT / "bvh_guangxue_to_f4.json",
+        "e1": IK_CONFIG_ROOT / "bvh_guangxue_to_e1.json",
+    },
+
+    "bvh_hold": {
+        "e1": IK_CONFIG_ROOT / "bvh_hold_to_e1.json",
     },
 
     "bvh_noitom": {
@@ -87,7 +93,7 @@ IK_CONFIG_DICT = {
 
     "bvh_new": {
         "x3_f2":IK_CONFIG_ROOT / "bvh_new_to_x3_f2.json",
-        "e1_25dof":IK_CONFIG_ROOT / "bvh_new_to_e1_25dof.json",
+        "e1":IK_CONFIG_ROOT / "bvh_new_to_e1_25dof.json",
     },
 
     "bvh_nokov":{
@@ -138,6 +144,7 @@ ROBOT_BASE_DICT = {
     "fourier_gr3": "base_link",
     "x3": "pelvis",
     "e1_no_hand": "pelvis",
+    "e1": "pelvis",
     "x3_f1": "pelvis",
     "x3_f2": "pelvis",
     "e1_25dof": "pelvis",
@@ -167,6 +174,7 @@ VIEWER_CAM_DISTANCE_DICT = {
     "fourier_gr3": 2.0,
     "x3": 2.0,
     "e1_no_hand": 2.0,
+    "e1": 2.0,
     "x3_f1": 2.0,
     "x3_f2": 2.0,
     "e1_25dof": 2.0,

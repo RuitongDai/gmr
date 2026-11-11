@@ -43,7 +43,7 @@ class Anim(object):
         self.bones = bones
 
 
-def read_bvh(filename, start=None, end=None, order=None):
+def read_bvh(filename, start=None, end=None, order=None, *, per_joint=False):
     """
     读取 BVH 文件并提取动画信息。
     【核心逻辑】：先解析 HIERARCHY 建立骨骼树状结构，再解析 MOTION 逐帧填充旋转和位移数据。
@@ -52,8 +52,13 @@ def read_bvh(filename, start=None, end=None, order=None):
     :param start: 起始帧 (截取用)
     :param end: 结束帧 (截取用)
     :param order: 强制指定的欧拉角旋转顺序 (若为 None，则代码会自动从文件 CHANNELS 属性中解析)
+    :param per_joint: 为 True 时逐关节解析通道；默认保留原读取逻辑。
+                      新分支的截帧遵循 Python 的 [start:end] 规则。
     :return: 包含提取信息的 Anim 对象
     """
+
+    if per_joint:
+        return read_bvh_channels(filename, start, end, order)
 
     f = open(filename, "r")
 
@@ -194,6 +199,106 @@ def read_bvh(filename, start=None, end=None, order=None):
     rotations = utils.remove_quat_discontinuities(rotations)
 
     return Anim(rotations, positions, offsets, parents, names)
+
+
+def read_bvh_channels(filename, start=None, end=None, order=None):
+    """逐关节解析 BVH 的平移和旋转通道，返回局部姿态 Anim。
+
+    支持同一文件混用 3/6 通道及不同欧拉角顺序；四元数为 wxyz。
+    无平移通道时保留 OFFSET，有平移通道时使用通道值，与旧分支
+    的平移赋值方式一致。保留文件原有单位、坐标轴和全部命名节点，
+    不做重定向适配。order 非空时强制覆盖各关节的旋转顺序。
+    该分支不处理缩放通道；start/end 使用 Python 半开区间切片。
+    """
+    names, parents, offsets, channels = [], [], [], []
+    active, end_site = -1, False
+
+    with open(filename, encoding="utf-8-sig") as f:
+        # 每个关节分别记录通道，不再共享一个 channels/order。
+        for raw in f:
+            words = raw.strip().split()
+            if not words:
+                continue
+
+            tag = words[0]
+            if tag == "MOTION":
+                break
+
+            if tag in ("ROOT", "JOINT"):
+                names.append(words[1])
+                parents.append(active)
+                offsets.append([0., 0., 0.])
+                channels.append([])
+                active = len(names) - 1
+            elif tag == "End":
+                end_site = True
+            elif tag == "}":
+                if end_site:
+                    end_site = False
+                else:
+                    active = parents[active]
+            elif tag == "OFFSET" and not end_site:
+                offsets[active] = list(map(float, words[1:4]))
+            elif tag == "CHANNELS":
+                channels[active] = words[2:]
+                if len(channels[active]) != int(words[1]):
+                    raise ValueError(f"Invalid CHANNELS: {names[active]}")
+        else:
+            raise ValueError("Missing MOTION section")
+
+        lines = (line.strip() for line in f if line.strip())
+        frame_count = int(next(lines).split(":", 1)[1])
+        frame_time = float(next(lines).split(":", 1)[1])
+        width = sum(map(len, channels))
+        rows = []
+        for line in lines:
+            values = np.array(list(map(float, line.split())))
+            if len(values) != width:
+                raise ValueError(
+                    f"Expected {width} channels, got {len(values)}"
+                )
+            rows.append(values)
+
+    if len(rows) != frame_count:
+        raise ValueError(
+            f"Expected {frame_count} frames, got {len(rows)}"
+        )
+
+    values = np.asarray(rows).reshape(frame_count, width)[slice(start, end)]
+    offsets = np.asarray(offsets, dtype=float)
+    positions = np.repeat(offsets[None], len(values), axis=0)
+    quats = np.zeros((len(values), len(names), 4))
+    quats[..., 0] = 1.0
+
+    column = 0
+    for j, layout in enumerate(channels):
+        rotation_columns, axes = [], []
+        for k, channel in enumerate(layout):
+            if channel in ("Xposition", "Yposition", "Zposition"):
+                axis = "XYZ".index(channel[0])
+                positions[:, j, axis] = values[:, column + k]
+            elif channel in ("Xrotation", "Yrotation", "Zrotation"):
+                rotation_columns.append(column + k)
+                axes.append(channel[0].lower())
+            else:
+                raise ValueError(f"Unsupported channel: {channel}")
+
+        if rotation_columns:
+            if len(axes) != 3 or len(set(axes)) != 3:
+                raise ValueError(f"Expected 3 rotation axes: {names[j]}")
+            angles = np.radians(values[:, rotation_columns])
+            quats[:, j] = utils.euler_to_quat(
+                angles, order=order or "".join(axes)
+            )
+
+        column += len(layout)
+
+    quats = utils.remove_quat_discontinuities(quats)
+    anim = Anim(
+        quats, positions, offsets, np.asarray(parents, dtype=int), names
+    )
+    anim.frametime = frame_time
+    return anim
 
 
 def get_lafan1_set(bvh_path, actors, window=50, offset=20):
